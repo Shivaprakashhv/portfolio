@@ -1,328 +1,208 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Shivaprakash H V</title>
-  <link rel = "icon" href ="shiva1.jpg"type = "image/x-icon"> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document Upload Portal</title>
+  <style>
+    :root {
+      --bg: #f6f8ff;
+      --card: #ffffff;
+      --primary: #355c7d;
+      --secondary: #6c5b7b;
+      --accent: #f67280;
+      --text: #1f2933;
+      --ok: #1f7a4d;
+    }
 
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-	
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Texturina">
+    * { box-sizing: border-box; }
 
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair Display">
-	
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(140deg, var(--bg), #eef3ff);
+      color: var(--text);
+      line-height: 1.45;
+    }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    .container {
+      max-width: 900px;
+      margin: 24px auto;
+      padding: 0 16px 32px;
+    }
 
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    h1 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
 
+    .subtitle {
+      text-align: center;
+      margin-top: 0;
+      color: #445;
+    }
 
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 18px;
+      margin: 14px 0;
+      border: 1px solid #dbe4ff;
+      box-shadow: 0 5px 15px rgba(53, 92, 125, 0.08);
+    }
 
-	<style >
-		 .card-body{
-         font-family: "Sofia";
-         }
+    h2 {
+      margin-top: 0;
+      color: var(--secondary);
+      font-size: 1.2rem;
+    }
 
-         img.profile{
-         border-radius: 100%;
-         border: 3px solid #555;
-         align-content: right;
-         float:right;
-         margin-right: 150px;
-         }
+    label { font-weight: bold; display: block; margin-bottom: 6px; }
 
-         .footer {
-           position: fixed;
-           left: 10;
-           bottom: 10px;
-           width: 100%;
-           text-align: center;
-           margin-left: 420px;
-         }
-         .display-4{
-         	font-family: "Quicksand";
-         }
-         .card-deck{
-         	font-family: "Texturina";
-         }
-         .card-good{
-         	font-family: "Playfair Display";
-         }
+    input[type="text"], input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #c9d4f0;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
 
-	</style>
-	
+    .btn, a.link-btn {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: 0;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn:hover, a.link-btn:hover { background: #223d54; }
+
+    .note {
+      margin: 8px 0 0;
+      font-size: 0.9rem;
+      color: #5d6670;
+    }
+
+    .year-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+
+    .year-box {
+      background: #f8fbff;
+      border: 1px dashed #b8c7eb;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .ok { color: var(--ok); font-weight: bold; }
+    .warn { color: var(--accent); font-weight: bold; }
+
+    .ack {
+      margin-top: 12px;
+      background: #edf8f1;
+      border: 1px solid #b3e1c5;
+      border-radius: 8px;
+      padding: 10px;
+      display: none;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 16px;
+      color: #5b6470;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-<div class="card col-md-12">
-    <div class="card-body" width="200px" >
-    	<p style="font-size: 30px;">Shivaprakash H V</p><hr>
-      
-<div style="font-family: Dancing Script;">
-   <div class="tab-content" id="pills-tabContent">
-     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-   <img src="shiva1.JPG" class="profile" alt="Shivaprakash" style="width:250px;">
-<h4>“I'm</h4>
-<h2>SHIVAPRAKASH H V</h2>
-<h3><i>self-starter with strong interpersonal skills. I work efficiently both as an individual contributor as well as along with a team. I seek new challenges and try to think out-of-the-box while looking for creative solutions to a given problem. I believe in character, values, vision, and action. I am a quick learner and believe in learning from my mistakes for I strongly feel that this virtue will take me ahead in life and career.
-</i></h3>
-<h3><i>
-Looking to start the career as an entry-level software engineer with a reputed firm driven by technology.”</i></h3>
-</div>
+  <div class="container">
+    <h1>Citizen Document Upload Homepage</h1>
+    <p class="subtitle">Simple workflow for PAN, property, 5-year uploads, Aadhaar auth, and acknowledgement.</p>
 
+    <section class="card">
+      <h2>Step 1: PAN Verification</h2>
+      <label for="pan">Enter PAN Number</label>
+      <input id="pan" type="text" placeholder="Example: ABCDE1234F" required>
 
-  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+      <label for="pan-upload">Upload PAN Document</label>
+      <input id="pan-upload" type="file" required>
 
-  	<div class="alert alert-warning" role="alert">
- <h1>Education</h1>
+      <a class="link-btn" href="pan-success.html">Proceed PAN Redirection</a>
+      <p class="note"><span class="warn">Required:</span> PAN number and file must be uploaded before proceeding to next process.</p>
+    </section>
 
- <div class="card-deck" style="font-style: Texturina;">
-  <div class="card">
-    <div style="margin-left:10px;">
-      <h5 class="card-title">Bachelor of Engineering</h5><hr>
-      <p class="card-text"><i>Information Science & Engg. (7.3 CGPA)
-      </i></p>
-      <p>Adichunchanagiri Institute of Technology, Chikkamagaluru</p>
-      <p>Visveswaraya Technological University, Belagavi</p>
-      <p class="card-text"><small class="text-muted">2017 - 2021</small></p> 
-    </div>
-  </div>
-  <div class="card">
-    <div style="margin-left:10px;">
-      <h5 class="card-title">Pre University</h5><hr>
-      <p class="card-text"><i>PCMB (83.33%)</i></p>
-      <P>Anubhavamantapa PU College, Davanagere</P>
-      <p>Department of PUE, Bengaluru</p>
-      <p class="card-text"><small class="text-muted">2015 - 2017</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <div style="margin-left:10px;">
-      <h5 class="card-title">SSLC</h5><hr>
-      <p class="card-text"><i>State Syllabus (85.12%)</i></p>
-      <p>Sri Taralabalu English Medium High School, Ajjihalli</p>
-      <p>KSEEB, Bengaluru</p>
-      <p class="card-text"><small class="text-muted">2015</small></p>
-    </div>
-  </div>
-</div>
-</div>
+    <section class="card">
+      <h2>Step 2: Property Document Upload</h2>
+      <label for="property-upload">Upload Property Document</label>
+      <input id="property-upload" type="file" required>
 
-<div class="card">
-  <h1 class="card-header">Mini Project</h1>
-  <div class="card-body11" style="margin: 20px 20px;">
-    <h5 class="card-title">Prison Management System (PRISMS)</h5>
-    <p class="card-text">The miniproject on the virtual governace of Prison Management System is built using HTML, CSS, JS and PHP. The server XAMPP, the database MySQL, and for attractive front end design the bootstrap were used.</p>
-  </div>
-</div>
-<br>
-<div class="alert alert-light" role="alert">
-  <div class="row">
-  <div class="col-sm-4">
-    <div class="card-good">
-      <div class="card-body11">
-        <h5 class="card-title">Technical Skills</h5><hr>
-        <p class="card-text"> > HTML, CSS</p>
-        <p class="card-text"> > C, C++</p>
-        <p class="card-text"> > Python</p>
-        
+      <a class="link-btn" href="property-success.html">Proceed Property Redirection</a>
+      <p class="note">After upload, open the success page from the link above.</p>
+    </section>
+
+    <section class="card">
+      <h2>Step 3: 5-Year Continuous Document Upload</h2>
+      <p class="note">Upload one file per year for 5 continuous years.</p>
+      <div class="year-grid">
+        <div class="year-box">
+          <label for="y1">Year 1 Document</label>
+          <input id="y1" type="file">
+        </div>
+        <div class="year-box">
+          <label for="y2">Year 2 Document</label>
+          <input id="y2" type="file">
+        </div>
+        <div class="year-box">
+          <label for="y3">Year 3 Document</label>
+          <input id="y3" type="file">
+        </div>
+        <div class="year-box">
+          <label for="y4">Year 4 Document</label>
+          <input id="y4" type="file">
+        </div>
+        <div class="year-box">
+          <label for="y5">Year 5 Document</label>
+          <input id="y5" type="file">
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card-good">
-      <div class="card-body11">
-        <h5 class="card-title">Personal Skills</h5><hr>
-        <p class="card-text">> Leadership quality</p>
-        <p class="card-text">> Optmistic</p>
-        <p class="card-text"></p>
-       
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card-good">
-      <div class="card-body11">
-        <h5 class="card-title">Hobbies</h5><hr>
-        <p class="card-text">> Photography</p>
-        <p class="card-text">> Travelling</p>
-        <p class="card-text"></p>
-       
-      </div>
-    </div>
-  </div>
-</div>
-</div>
+      <button class="btn" type="button">Upload 5-Year Documents</button>
+      <p class="note">Click this button after selecting all five yearly documents.</p>
+    </section>
 
+    <section class="card">
+      <h2>Step 4: Aadhaar Authentication (After PAN and Property success)</h2>
+      <p class="ok">Proceed only when PAN and Property uploads are successful.</p>
+      <a class="link-btn" href="aadhar-auth.html">Initiate Aadhaar Auth</a>
+    </section>
+
+    <section class="card">
+      <h2>Step 5: Upload Picture and Generate Acknowledgement Number</h2>
+      <label for="picture">Upload Applicant Picture</label>
+      <input id="picture" type="file" accept="image/*">
+
+      <button class="btn" onclick="generateAck()">Generate Acknowledge Number</button>
+
+      <div id="ack" class="ack"></div>
+    </section>
+
+    <div class="footer">Local static HTML + local CSS only (no external dependency).</div>
   </div>
 
-<div class="tab-pane fade" id="pills-certi" role="tabpanel" aria-labelledby="pills-certi-tab-tab">
-	<h1 style="text-align: center;">Certification</h1>
-    <h3>1. Courses/ Training</h3>
-
-  
-<div class="row row-cols-1 row-cols-md-2">
-  <div class="col mb-4">
-    <div class="card">
-      <img src="certi_training.jpg" class="card-img-top" alt="...">
-      <div class="card-body1">
-        <h5 style="margin: 5px 5px 5px 55px;"><i> Android App Development by Internshala Training</i></h5>
-      </div>
-    </div>
-  </div>
-
-  <div class="col mb-4">
-    <div class="card">
-      <img src="nptel_certi.jpg" class="card-img-top" alt="...">
-      <div class="card-body1">
-        <h5 style="margin: 10px 5px 5px 70px;"><i> Cloud Computing & Distributed Systems by NPTEL</i></h5>
-      </div>
-    </div>
-  </div>
-
-  <div class="col mb-4">
-    <div class="card">
-      <img src="tcs_cer.jpg" class="card-img-top" alt="...">
-      <div class="card-body1">
-        <h5 style="margin: 5px 5px 5px 60px;"><i> Career Edge - Knockdown the Lockdown by TCS iON</i></h5>
-      </div>
-    </div>
-  </div>
-  
-  <div class="col mb-4">
-    <div class="card">
-      <img src="clc.jpg" class="card-img-top" alt="...">
-      <div class="card-body1">
-        <h5 style="margin: 5px 5px 5px 190px;"><i>Code Like Corporate</i></h5>
-      </div>
-    </div>
-  </div>
-
-  <div class="col mb-4" style="align-content: center;">
-    <div class="card">
-      <img src="web.jpeg" class="card-img-top" alt="...">
-      <div class="card-body1">
-        <h5 style="margin: 5px 5px 5px 150px;"><i>Web Design Workshop</i></h5>
-      </div>
-    </div>
-  </div>
-
-
-<div class="col mb-4">
-    <div class="card">
-      <img src="isp.jpg" class="card-img-top" alt="...">
-      <div class="card-body1">
-        <h5 style="margin: 21px 5px 5px 55px;"><i> Internshala Student Partner (Campus Ambassador)</i></h5>
-      </div>
-    </div>
-  </div>
-
-</div>
-<h3>2. Other Participation</h3>
-  
-<div class="row row-cols-1 row-cols-md-2">
-  <div class="col mb-4">
-    <div class="card">
-      <img src="mit.jpg" class="card-img-top" alt="...">
-      <div class="card-body1">
-        <h5 style="margin: 5px 5px 5px 160px;"><i>Ideathon by MCE, Hassan</i></h5>
-      </div>
-    </div>
-  </div>
-
-  <div class="col mb-4">
-    <div class="card">
-      <img src="msr12.jpg" class="card-img-top" alt="..." width="500px" height="395px">
-      <div class="card-body1">
-        <h5 style="margin: 5px 5px 5px 130px;"><i>Covid Awareness Quiz by RIT,Bengaluru</i></h5>
-      </div>
-    </div>
-  </div>
-
-<div class="col mb-4">
-    <div class="card">
-      <img src="speak.jpeg" class="card-img-top" alt="..." width="500px" height="395px">
-      <div class="card-body1">
-        <h5 style="margin: 5px 5px 5px 130px;"><i>Speak For India by Fedral Bank</i></h5>
-      </div>
-    </div>
-  </div>
-
-  <div class="col mb-4">
-    <div class="card">
-      <img src="tcs.jpeg" class="card-img-top" alt="..." width="500px" height="395px">
-      <div class="card-body1">
-        <h5 style="margin: 10px 5px 5px 130px;"><i>TCS Tech Bytes by TCS</i></h5>
-      </div>
-    </div>
-  </div>
-
-  <div class="col mb-4">
-    <div class="card">
-      <img src="hack.jpeg" class="card-img-top" alt="...">
-      <div class="card-body1">
-        <h5 style="margin: 5px 5px 5px 55px;"><i> Hackinthosh- Evo 
-        (Hack-a-thon) by RIT, Hassan</i></h5>
-      </div>
-    </div>
-  </div>
-
-</div></div>
-  
-
-  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-<h1 style="text-align: center;">Contact</h1>
-<div class="card">
-  <div class="card-body">
-   <a href="mailto:shivaprakashhv26@gmail.com">
-   	<img src="gmai.png" width="85px" height="65px" style="margin: 40px 40px 40px 150px ;">
-   </a>
-
-   <a href="https://www.facebook.com/shivaprakashHalgaplarVamadeva/">
-   	<img src="facebook.png" width="75px" height="75px" style="margin: 40px;"></a>
-
-   <a href="https://www.linkedin.com/in/shivaprakash-h-v-54a675183/">
-   	<img src="link.svg" width="100px" height="100px" style="margin: 40px;">
-   </a>
-   
-   <a href="https://www.instagram.com/shivaprakashhv">
-   	<img src="insta.svg" style="margin: 40px;" width="75px" height="75px"></a>
-
-   <a href="https://www.youtube.com/channel/UCfsw_s9fu5fTxpDJzrWR92Q?view_as=subscriber">
-   	<img src="tube.svg" width="100px" height="100px" 
-   	style="margin: 40px;"></a>
-
-   <a href="https://api.whatsapp.com/send?phone=919482479738"><img src="wapp.svg" width="75px" height="75px" 
-   	style="margin: 40px;"></a>
-  </div>
-</div>
-
-  </div>
-  
-  </div>
-
-<div class="footer">
-<ul class="nav nav-pills mb-4" id="pills-tab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Resume</a>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a class="nav-link" id="pills-certi-tab" data-toggle="pill" href="#pills-certi" role="tab" aria-controls="pills-certi" aria-selected="false">Certificate</a>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
-  </li>
-</ul>
-</div>
-</div>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
+  <script>
+    function generateAck() {
+      const random = Math.floor(100000 + Math.random() * 900000);
+      const ackNumber = 'ACK' + new Date().getFullYear() + random;
+      const box = document.getElementById('ack');
+      box.style.display = 'block';
+      box.innerHTML = '<strong>Acknowledgement Generated:</strong> ' + ackNumber;
+    }
+  </script>
 </body>
 </html>
-
-
