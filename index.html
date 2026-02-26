@@ -3,206 +3,635 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document Upload Portal</title>
+  <title>Shivaprakash H V | AI & ML Portfolio</title>
+  <meta name="description" content="Professional portfolio of Shivaprakash H V, AI & Machine Learning Enthusiast and RPA Developer with 4+ years at Infosys.">
+  <meta name="keywords" content="Shivaprakash H V, AI, Machine Learning, RPA, Automation Anywhere, Infosys, Python, SQL">
+  <meta name="author" content="Shivaprakash H V">
   <style>
     :root {
-      --bg: #f6f8ff;
-      --card: #ffffff;
-      --primary: #355c7d;
-      --secondary: #6c5b7b;
-      --accent: #f67280;
-      --text: #1f2933;
-      --ok: #1f7a4d;
+      --bg: #f8fbff;
+      --surface: #ffffff;
+      --surface-alt: #f1f7f4;
+      --text: #20313e;
+      --muted: #5b6b76;
+      --primary: #1f8a70;
+      --primary-dark: #136b56;
+      --secondary: #4c6fff;
+      --accent: #f4a261;
+      --ring: rgba(31, 138, 112, 0.2);
+      --shadow: 0 10px 30px rgba(18, 55, 72, 0.12);
+      --radius: 18px;
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(140deg, var(--bg), #eef3ff);
+      font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(circle at 8% 5%, #e8fff5 0%, transparent 40%),
+                  radial-gradient(circle at 92% 12%, #fef5e9 0%, transparent 35%),
+                  var(--bg);
       color: var(--text);
-      line-height: 1.45;
+      line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
-    .container {
-      max-width: 900px;
-      margin: 24px auto;
-      padding: 0 16px 32px;
+    a { color: inherit; text-decoration: none; }
+
+    .container { width: min(1120px, 92%); margin: 0 auto; }
+
+    .section { padding: 72px 0; }
+
+    .section-title {
+      font-size: clamp(1.7rem, 2.3vw, 2.4rem);
+      margin-bottom: 12px;
     }
 
-    h1 {
-      text-align: center;
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 30px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary-dark);
+      background: #e8f7f2;
+      border: 1px solid #caeee2;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 18px;
+    }
+
+    .hero {
+      padding: 110px 0 80px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .hero .title {
       color: var(--primary);
-      margin-bottom: 6px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-size: 1.12rem;
     }
 
-    .subtitle {
-      text-align: center;
-      margin-top: 0;
-      color: #445;
+    .hero .tagline {
+      color: var(--muted);
+      margin-bottom: 24px;
+      max-width: 58ch;
     }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(130deg, var(--primary), #24a885);
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(31, 138, 112, 0.25);
+    }
+
+    .btn-outline {
+      background: #fff;
+      color: var(--primary-dark);
+      border: 1px solid #bde4d8;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .profile-wrap {
+      justify-self: center;
+      position: relative;
+      padding: 14px;
+      border-radius: 30px;
+      background: linear-gradient(150deg, #f4fffb, #fef6ec);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-wrap img {
+      width: min(320px, 72vw);
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 2px solid #fff;
+    }
+
+    .info-grid,
+    .cards-grid,
+    .blog-grid,
+    .testimonial-grid,
+    .education-grid,
+    .cert-grid,
+    .awards-grid,
+    .contact-grid,
+    .tech-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .cards-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .blog-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .testimonial-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .education-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .cert-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .awards-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .contact-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+    .tech-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
 
     .card {
-      background: var(--card);
-      border-radius: 12px;
-      padding: 18px;
-      margin: 14px 0;
-      border: 1px solid #dbe4ff;
-      box-shadow: 0 5px 15px rgba(53, 92, 125, 0.08);
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 22px;
+      border: 1px solid #e6eef4;
+      box-shadow: var(--shadow);
     }
 
-    h2 {
-      margin-top: 0;
-      color: var(--secondary);
-      font-size: 1.2rem;
-    }
+    .summary-card p { color: var(--muted); }
 
-    label { font-weight: bold; display: block; margin-bottom: 6px; }
-
-    input[type="text"], input[type="file"] {
+    .skill-row { margin-bottom: 16px; }
+    .skill-meta { display: flex; justify-content: space-between; margin-bottom: 6px; font-weight: 600; }
+    .skill-track {
       width: 100%;
-      padding: 10px;
-      border: 1px solid #c9d4f0;
-      border-radius: 8px;
-      margin-bottom: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #e9eff4;
+      overflow: hidden;
     }
 
-    .btn, a.link-btn {
-      display: inline-block;
-      background: var(--primary);
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 16px;
-      border-radius: 8px;
-      border: 0;
-      cursor: pointer;
-      font-weight: bold;
+    .skill-fill {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(120deg, var(--primary), var(--secondary));
+      transition: width 1.1s ease;
     }
 
-    .btn:hover, a.link-btn:hover { background: #223d54; }
-
-    .note {
-      margin: 8px 0 0;
-      font-size: 0.9rem;
-      color: #5d6670;
+    .tech-item {
+      text-align: center;
+      padding: 18px 12px;
+      background: var(--surface);
+      border: 1px solid #e7eef5;
+      border-radius: 14px;
+      transition: 0.2s ease;
     }
 
-    .year-grid {
+    .tech-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(50, 81, 95, 0.12);
+    }
+
+    .tech-item img { width: 42px; height: 42px; margin-bottom: 8px; }
+
+    .project-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .metric {
+      font-size: 0.85rem;
+      background: #f1f9f6;
+      color: #125846;
+      border: 1px solid #caebdf;
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .timeline {
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .timeline-track {
+      min-width: 920px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      position: relative;
+    }
+
+    .timeline-track::before {
+      content: "";
+      position: absolute;
+      top: 24px;
+      left: 3%;
+      right: 3%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      z-index: 0;
+    }
+
+    .timeline-step {
+      position: relative;
+      z-index: 1;
+      padding-top: 36px;
+    }
+
+    .timeline-step::before {
+      content: "";
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      border: 4px solid var(--primary);
+      border-radius: 50%;
+      position: absolute;
+      top: 16px;
+      left: 12px;
+    }
+
+    .timeline-step h4 { margin-bottom: 8px; }
+    .timeline-step ul { padding-left: 18px; color: var(--muted); }
+
+    .experience-list,
+    .cert-list,
+    .award-list,
+    .edu-list {
+      list-style: none;
+      display: grid;
       gap: 10px;
     }
 
-    .year-box {
-      background: #f8fbff;
-      border: 1px dashed #b8c7eb;
-      border-radius: 8px;
-      padding: 10px;
+    .experience-list li::before,
+    .cert-list li::before,
+    .award-list li::before,
+    .edu-list li::before {
+      content: "✓";
+      color: var(--primary);
+      margin-right: 8px;
+      font-weight: 800;
     }
 
-    .ok { color: var(--ok); font-weight: bold; }
-    .warn { color: var(--accent); font-weight: bold; }
-
-    .ack {
-      margin-top: 12px;
-      background: #edf8f1;
-      border: 1px solid #b3e1c5;
-      border-radius: 8px;
-      padding: 10px;
-      display: none;
+    form input,
+    form textarea {
+      width: 100%;
+      border: 1px solid #cfe0ea;
+      border-radius: 12px;
+      padding: 12px;
+      margin-bottom: 12px;
+      font: inherit;
+      outline: none;
+      background: #fbfdff;
     }
 
-    .footer {
-      text-align: center;
-      margin-top: 16px;
-      color: #5b6470;
+    form input:focus,
+    form textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--ring); }
+
+    .contact-links p { margin-bottom: 8px; color: var(--muted); }
+
+    footer {
+      margin-top: 40px;
+      background: #ecf8f4;
+      border-top: 1px solid #d3eee4;
+      padding: 30px 0;
+    }
+
+    .footer-wrap {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+    }
+
+    .socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .socials a {
+      background: #fff;
+      border: 1px solid #d9e8ef;
+      padding: 8px 12px;
+      border-radius: 12px;
       font-size: 0.9rem;
+      color: #355;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 880px) {
+      .hero { grid-template-columns: 1fr; padding-top: 80px; }
+      .contact-grid,
+      .footer-wrap { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Citizen Document Upload Homepage</h1>
-    <p class="subtitle">Simple workflow for PAN, property, 5-year uploads, Aadhaar auth, and acknowledgement.</p>
+  <header class="container hero reveal" id="home">
+    <div>
+      <div class="badge">✨ Latest Tech + Innovation Focus</div>
+      <h1>Shivaprakash H V</h1>
+      <p class="title">AI &amp; Machine Learning Enthusiast | RPA Developer</p>
+      <p class="tagline">"Transforming business processes through intelligent automation and AI-driven solutions."</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-outline" href="resume-shivaprakash-hv.pdf" target="_blank" rel="noopener" download>📄 Download Resume</a>
+        <a class="btn btn-outline" href="#contact">Contact Me</a>
+      </div>
+    </div>
+    <div class="profile-wrap">
+      <img src="shiva1.jpg" alt="Profile photo of Shivaprakash H V">
+    </div>
+  </header>
 
-    <section class="card">
-      <h2>Step 1: PAN Verification</h2>
-      <label for="pan">Enter PAN Number</label>
-      <input id="pan" type="text" placeholder="Example: ABCDE1234F" required>
-
-      <label for="pan-upload">Upload PAN Document</label>
-      <input id="pan-upload" type="file" required>
-
-      <a class="link-btn" href="pan-success.html">Proceed PAN Redirection</a>
-      <p class="note"><span class="warn">Required:</span> PAN number and file must be uploaded before proceeding to next process.</p>
-    </section>
-
-    <section class="card">
-      <h2>Step 2: Property Document Upload</h2>
-      <label for="property-upload">Upload Property Document</label>
-      <input id="property-upload" type="file" required>
-
-      <a class="link-btn" href="property-success.html">Proceed Property Redirection</a>
-      <p class="note">After upload, open the success page from the link above.</p>
-    </section>
-
-    <section class="card">
-      <h2>Step 3: 5-Year Continuous Document Upload</h2>
-      <p class="note">Upload one file per year for 5 continuous years.</p>
-      <div class="year-grid">
-        <div class="year-box">
-          <label for="y1">Year 1 Document</label>
-          <input id="y1" type="file">
-        </div>
-        <div class="year-box">
-          <label for="y2">Year 2 Document</label>
-          <input id="y2" type="file">
-        </div>
-        <div class="year-box">
-          <label for="y3">Year 3 Document</label>
-          <input id="y3" type="file">
-        </div>
-        <div class="year-box">
-          <label for="y4">Year 4 Document</label>
-          <input id="y4" type="file">
-        </div>
-        <div class="year-box">
-          <label for="y5">Year 5 Document</label>
-          <input id="y5" type="file">
+  <main>
+    <section class="section reveal" id="summary">
+      <div class="container">
+        <h2 class="section-title">Professional Summary</h2>
+        <div class="card summary-card">
+          <p>AI &amp; ML enthusiast with 4+ years of experience as an RPA Developer at Infosys, working on enterprise automation solutions for Aetna International. Proven expertise in Excel automation, SQL database integration, UI automation, and API-based workflow orchestration. Passionate about building intelligent systems, integrating AI with automation, and transitioning into advanced Machine Learning roles.</p>
         </div>
       </div>
-      <button class="btn" type="button">Upload 5-Year Documents</button>
-      <p class="note">Click this button after selecting all five yearly documents.</p>
     </section>
 
-    <section class="card">
-      <h2>Step 4: Aadhaar Authentication (After PAN and Property success)</h2>
-      <p class="ok">Proceed only when PAN and Property uploads are successful.</p>
-      <a class="link-btn" href="aadhar-auth.html">Initiate Aadhaar Auth</a>
+    <section class="section reveal" id="skills">
+      <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">Core development and automation capabilities with scroll-triggered animated progress bars.</p>
+        <div class="card">
+          <div class="skill-row"><div class="skill-meta"><span>Python</span><span>85%</span></div><div class="skill-track"><div class="skill-fill" data-width="85%"></div></div></div>
+          <div class="skill-row"><div class="skill-meta"><span>SQL</span><span>80%</span></div><div class="skill-track"><div class="skill-fill" data-width="80%"></div></div></div>
+          <div class="skill-row"><div class="skill-meta"><span>Automation Anywhere</span><span>90%</span></div><div class="skill-track"><div class="skill-fill" data-width="90%"></div></div></div>
+          <div class="skill-row"><div class="skill-meta"><span>RPA Development</span><span>90%</span></div><div class="skill-track"><div class="skill-fill" data-width="90%"></div></div></div>
+          <div class="skill-row"><div class="skill-meta"><span>Machine Learning</span><span>70%</span></div><div class="skill-track"><div class="skill-fill" data-width="70%"></div></div></div>
+          <div class="skill-row"><div class="skill-meta"><span>HTML</span><span>75%</span></div><div class="skill-track"><div class="skill-fill" data-width="75%"></div></div></div>
+          <div class="skill-row"><div class="skill-meta"><span>CSS</span><span>70%</span></div><div class="skill-track"><div class="skill-fill" data-width="70%"></div></div></div>
+          <div class="skill-row"><div class="skill-meta"><span>API Integration</span><span>85%</span></div><div class="skill-track"><div class="skill-fill" data-width="85%"></div></div></div>
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>Step 5: Upload Picture and Generate Acknowledgement Number</h2>
-      <label for="picture">Upload Applicant Picture</label>
-      <input id="picture" type="file" accept="image/*">
-
-      <button class="btn" onclick="generateAck()">Generate Acknowledge Number</button>
-
-      <div id="ack" class="ack"></div>
+    <section class="section reveal" id="stack">
+      <div class="container">
+        <h2 class="section-title">Tech Stack</h2>
+        <div class="tech-grid">
+          <div class="tech-item"><img src="https://cdn.simpleicons.org/python" alt="Python"><p>Python</p></div>
+          <div class="tech-item"><img src="https://cdn.simpleicons.org/mysql" alt="SQL"><p>SQL</p></div>
+          <div class="tech-item"><img src="https://cdn.simpleicons.org/automationanywhere" alt="Automation Anywhere"><p>Automation Anywhere</p></div>
+          <div class="tech-item"><img src="https://cdn.simpleicons.org/amazonaws" alt="AWS"><p>AWS</p></div>
+          <div class="tech-item"><img src="https://cdn.simpleicons.org/html5" alt="HTML5"><p>HTML5</p></div>
+          <div class="tech-item"><img src="https://cdn.simpleicons.org/css" alt="CSS3"><p>CSS3</p></div>
+          <div class="tech-item"><img src="https://cdn.simpleicons.org/git" alt="Git"><p>Git</p></div>
+          <div class="tech-item"><img src="https://cdn.simpleicons.org/openapiinitiative" alt="REST APIs"><p>REST APIs</p></div>
+        </div>
+      </div>
     </section>
 
-    <div class="footer">Local static HTML + local CSS only (no external dependency).</div>
-  </div>
+    <section class="section reveal" id="experience">
+      <div class="container">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="card">
+          <h3>RPA Developer – Infosys</h3>
+          <p><strong>Client:</strong> Aetna International | <strong>Experience:</strong> 4 Years | <strong>Location:</strong> India</p>
+          <ul class="experience-list" style="margin-top: 12px;">
+            <li>Developed enterprise-grade automation bots.</li>
+            <li>Automated Excel reconciliation systems.</li>
+            <li>Integrated bots with SQL databases.</li>
+            <li>Built UI-based automation for internal applications.</li>
+            <li>Designed API-driven workflows.</li>
+            <li>Reduced manual workload significantly.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects with Metrics &amp; ROI</h2>
+        <div class="cards-grid">
+          <article class="card">
+            <h3>Intelligent Excel Automation System</h3>
+            <p>Enterprise workflow automation for complex Excel-driven reconciliation and reporting pipelines.</p>
+            <div class="project-metrics">
+              <span class="metric">70% Faster Processing</span>
+              <span class="metric">150+ Hours Saved / Month</span>
+              <span class="metric">98% Reporting Accuracy</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Database Integrated RPA Bot</h3>
+            <p>Built validation bots integrating SQL checks and automated exception handling for operational teams.</p>
+            <div class="project-metrics">
+              <span class="metric">Automated SQL Validation</span>
+              <span class="metric">85% Error Reduction</span>
+              <span class="metric">60% Faster Turnaround</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>API-Based Claims Processing Automation</h3>
+            <p>Connected multiple systems through API-first orchestration to improve claims reliability and throughput.</p>
+            <div class="project-metrics">
+              <span class="metric">Multi-system API Integration</span>
+              <span class="metric">30% Cost Reduction</span>
+              <span class="metric">99% Process Reliability</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="roadmap">
+      <div class="container">
+        <h2 class="section-title">AI/ML Learning Roadmap</h2>
+        <div class="timeline card">
+          <div class="timeline-track">
+            <article class="timeline-step">
+              <h4>Phase 1 – Foundations</h4>
+              <ul>
+                <li>Python Advanced Programming</li>
+                <li>Data Structures &amp; Algorithms</li>
+                <li>Statistics &amp; Probability</li>
+              </ul>
+            </article>
+            <article class="timeline-step">
+              <h4>Phase 2 – Machine Learning</h4>
+              <ul>
+                <li>Supervised &amp; Unsupervised Learning</li>
+                <li>Scikit-learn</li>
+                <li>Model Evaluation Techniques</li>
+              </ul>
+            </article>
+            <article class="timeline-step">
+              <h4>Phase 3 – Deep Learning</h4>
+              <ul>
+                <li>Neural Networks</li>
+                <li>TensorFlow / PyTorch</li>
+                <li>NLP Basics</li>
+              </ul>
+            </article>
+            <article class="timeline-step">
+              <h4>Phase 4 – Generative AI</h4>
+              <ul>
+                <li>LLM Concepts</li>
+                <li>Prompt Engineering</li>
+                <li>AI Automation Integration</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="blog">
+      <div class="container">
+        <h2 class="section-title">Latest Insights</h2>
+        <div class="blog-grid">
+          <article class="card"><h3>How RPA and AI Together Transform Enterprise Automation</h3><p>A practical look at the future-ready blend of automation and intelligence in enterprise COE initiatives.</p><a class="btn btn-outline" href="#">Read More</a></article>
+          <article class="card"><h3>Beginner’s Guide to Machine Learning for Automation Engineers</h3><p>Roadmap and learning priorities for RPA developers transitioning into ML and advanced analytics workflows.</p><a class="btn btn-outline" href="#">Read More</a></article>
+          <article class="card"><h3>From RPA Developer to AI Engineer – My Learning Journey</h3><p>Reflections, challenges, and milestones from practical projects and a structured AI upskilling journey.</p><a class="btn btn-outline" href="#">Read More</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="testimonials">
+      <div class="container">
+        <h2 class="section-title">Testimonials</h2>
+        <div class="testimonial-grid">
+          <blockquote class="card">“Shivaprakash consistently delivered high-quality automation solutions that significantly improved efficiency across our processes.”<br><strong>– Project Manager, Infosys</strong></blockquote>
+          <blockquote class="card">“His analytical thinking and dedication towards automation excellence made him a valuable contributor to the COE initiatives.”<br><strong>– Automation Lead</strong></blockquote>
+          <blockquote class="card">“He blends technical rigor with ownership mindset and consistently ensures reliable end-to-end automation outcomes.”<br><strong>– Senior Delivery Lead</strong></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="education">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="education-grid">
+          <article class="card"><h3>Bachelor of Engineering – Information Science &amp; Engineering</h3><ul class="edu-list"><li>Adichunchanagiri Institute of Technology</li><li>Visveswaraya Technological University</li><li>CGPA: 7.3 | 2017–2021</li></ul></article>
+          <article class="card"><h3>Pre-University – PCMB</h3><ul class="edu-list"><li>83.33% | 2015–2017</li></ul><h3 style="margin-top: 18px;">SSLC – State Syllabus</h3><ul class="edu-list"><li>85.12% | 2015</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="certifications">
+      <div class="container">
+        <h2 class="section-title">Certifications</h2>
+        <div class="card">
+          <ul class="cert-list">
+            <li>AWS Cloud Quest: Generative AI Practitioner – Amazon (Jan 2026)</li>
+            <li>APA Developer Masterclass – Automation Anywhere (Feb 2026)</li>
+            <li>Infosys Certified Digital Worker Professional – Mar 2025</li>
+            <li>Business Communication – Infosys (Valid till Dec 2027)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="awards">
+      <div class="container">
+        <h2 class="section-title">Awards &amp; Achievements</h2>
+        <div class="card">
+          <ul class="award-list">
+            <li>Outstanding Performer – 2 Consecutive Years (Infosys)</li>
+            <li>Insta Award – Project Deliverables Excellence</li>
+            <li>Insta Award – COE Contributions</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-grid">
+          <div class="card">
+            <form>
+              <input type="text" placeholder="Your Name" required>
+              <input type="email" placeholder="Your Email" required>
+              <textarea rows="5" placeholder="Your Message" required></textarea>
+              <button class="btn btn-primary" type="submit">Send Message</button>
+            </form>
+          </div>
+          <div class="card contact-links">
+            <p><strong>Email:</strong> <a href="mailto:shivaprakashhv26@gmail.com">shivaprakashhv26@gmail.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+919482479738">+91 9482479738</a></p>
+            <p><strong>Location:</strong> Bengaluru, Karnataka, India</p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/shivaprakash-h-v-54a675183" target="_blank" rel="noopener">shivaprakash-h-v-54a675183</a></p>
+            <div style="margin-top: 18px;">
+              <a class="btn btn-outline" href="resume-shivaprakash-hv.pdf" target="_blank" rel="noopener" download>📄 Download Resume PDF</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-wrap">
+      <p>Copyright © 2026 Shivaprakash H V</p>
+      <div class="socials">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a target="_blank" rel="noopener" href="https://api.whatsapp.com/send?phone=919482479738">WhatsApp</a>
+        <a target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCfsw_s9fu5fTxpDJzrWR92Q?view_as=subscriber">YouTube</a>
+        <a target="_blank" rel="noopener" href="https://www.linkedin.com/in/shivaprakash-h-v-54a675183/">LinkedIn</a>
+        <a target="_blank" rel="noopener" href="https://www.instagram.com/shivaprakashhv">Instagram</a>
+        <a target="_blank" rel="noopener" href="https://www.facebook.com/shivaprakashHalgaplarVamadeva/">Facebook</a>
+      </div>
+    </div>
+  </footer>
 
   <script>
-    function generateAck() {
-      const random = Math.floor(100000 + Math.random() * 900000);
-      const ackNumber = 'ACK' + new Date().getFullYear() + random;
-      const box = document.getElementById('ack');
-      box.style.display = 'block';
-      box.innerHTML = '<strong>Acknowledgement Generated:</strong> ' + ackNumber;
-    }
+    const revealTargets = document.querySelectorAll('.reveal');
+    const skillSection = document.getElementById('skills');
+    let skillsAnimated = false;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+
+        if (!skillsAnimated && entry.target === skillSection && entry.isIntersecting) {
+          document.querySelectorAll('.skill-fill').forEach((fill) => {
+            fill.style.width = fill.dataset.width;
+          });
+          skillsAnimated = true;
+        }
+      });
+    }, { threshold: 0.2 });
+
+    revealTargets.forEach((el) => observer.observe(el));
   </script>
 </body>
 </html>
